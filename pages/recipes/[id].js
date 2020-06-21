@@ -1,5 +1,18 @@
 export default function Recipe({ recipe }) {
-  return <h2>{recipe.name}</h2>;
+  const { name, description, instructions, ingredients } = recipe;
+  return (
+    <article>
+      <h2>{name}</h2>
+      <p>Description</p>
+      <p>{description}</p>
+
+      <p>Instructions</p>
+      <p>{instructions}</p>
+
+      <p>Ingredients</p>
+      <p>{ingredients}</p>
+    </article>
+  );
 }
 
 export async function getServerSideProps(context) {
