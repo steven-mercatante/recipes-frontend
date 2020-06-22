@@ -1,16 +1,38 @@
+import ReactMarkdown from "react-markdown";
+
 export default function Recipe({ recipe }) {
   const { name, description, instructions, ingredients } = recipe;
+
   return (
     <article>
       <h2>{name}</h2>
-      <p>Description</p>
-      <p>{description}</p>
 
-      <p>Instructions</p>
-      <p>{instructions}</p>
+      {description && (
+        <>
+          <p>Description</p>
+          <p>
+            <ReactMarkdown source={description} />
+          </p>
+        </>
+      )}
 
-      <p>Ingredients</p>
-      <p>{ingredients}</p>
+      {instructions && (
+        <>
+          <p>Instructions</p>
+          <p>
+            <ReactMarkdown source={instructions} />
+          </p>
+        </>
+      )}
+
+      {ingredients && (
+        <>
+          <p>Ingredients</p>
+          <p>
+            <ReactMarkdown source={ingredients} />
+          </p>
+        </>
+      )}
     </article>
   );
 }
