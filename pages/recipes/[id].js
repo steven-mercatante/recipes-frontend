@@ -40,7 +40,7 @@ export default function Recipe({ recipe }) {
 export async function getServerSideProps(context) {
   const { id } = context.params;
 
-  const res = await fetch(`http://localhost:8000/recipes/${id}`);
+  const res = await fetch(`${process.env.API_URL}/recipes/${id}`);
   const data = await res.json();
 
   return {

@@ -43,7 +43,7 @@ export default function Home({ recipes }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const res = await fetch("http://localhost:8000/recipes");
+  const res = await fetch(`${process.env.API_URL}/recipes`);
   const data = await res.json();
 
   return {

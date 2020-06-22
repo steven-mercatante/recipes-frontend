@@ -5,7 +5,7 @@ export default function Create() {
 
   const onSubmit = async data => {
     // TODO: catch error & show user friendly message
-    const res = await fetch("http://localhost:8000/recipes", {
+    const res = await fetch(`${process.env.API_URL}/recipes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -24,12 +24,27 @@ export default function Create() {
         ref={register({ required: true })}
       />
       {errors.name && <span>This field is required</span>}
-      Description:
-      <textarea name="description" ref={register}></textarea>
-      Ingredients:
-      <textarea name="ingredients" ref={register}></textarea>
-      Instructions:
-      <textarea name="instructions" ref={register}></textarea>
+      <p>Description:</p>
+      <textarea
+        name="description"
+        ref={register}
+        rows="20"
+        cols="70"
+      ></textarea>
+      <p>Ingredients:</p>
+      <textarea
+        name="ingredients"
+        ref={register}
+        rows="20"
+        cols="70"
+      ></textarea>
+      <p>Instructions:</p>
+      <textarea
+        name="instructions"
+        ref={register}
+        rows="20"
+        cols="70"
+      ></textarea>
       <input type="submit" />
     </form>
   );
