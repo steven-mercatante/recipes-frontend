@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 
 import { API_URL } from "../../constants";
 
@@ -12,21 +12,21 @@ export default function Recipe({ recipe }) {
       {description && (
         <>
           <p>Description</p>
-          <ReactMarkdown source={description} />
+          <Markdown>{description}</Markdown>
         </>
       )}
 
       {instructions && (
         <>
           <p>Instructions</p>
-          <ReactMarkdown source={instructions} />
+          <Markdown>{instructions}</Markdown>
         </>
       )}
 
       {ingredients && (
         <>
           <p>Ingredients</p>
-          <ReactMarkdown source={ingredients} />
+          <Markdown>{ingredients}</Markdown>
         </>
       )}
     </article>
