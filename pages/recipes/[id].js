@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 
+import { API_URL } from "../../constants";
+
 export default function Recipe({ recipe }) {
   const { name, description, instructions, ingredients } = recipe;
 
@@ -10,27 +12,21 @@ export default function Recipe({ recipe }) {
       {description && (
         <>
           <p>Description</p>
-          <p>
-            <ReactMarkdown source={description} />
-          </p>
+          <ReactMarkdown source={description} />
         </>
       )}
 
       {instructions && (
         <>
           <p>Instructions</p>
-          <p>
-            <ReactMarkdown source={instructions} />
-          </p>
+          <ReactMarkdown source={instructions} />
         </>
       )}
 
       {ingredients && (
         <>
           <p>Ingredients</p>
-          <p>
-            <ReactMarkdown source={ingredients} />
-          </p>
+          <ReactMarkdown source={ingredients} />
         </>
       )}
     </article>
@@ -40,7 +36,7 @@ export default function Recipe({ recipe }) {
 export async function getServerSideProps(context) {
   const { id } = context.params;
 
-  const res = await fetch(`${process.env.API_URL}/recipes/${id}`);
+  const res = await fetch(`${API_URL}/recipes/${id}`);
   const data = await res.json();
 
   return {

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { GetServerSideProps } from "next";
+import { API_URL } from "../constants";
 
 export default function Home({ recipes }) {
   return (
@@ -43,7 +44,7 @@ export default function Home({ recipes }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-  const res = await fetch(`${process.env.API_URL}/recipes`);
+  const res = await fetch(`${API_URL}/recipes`);
   const data = await res.json();
 
   return {

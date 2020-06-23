@@ -1,16 +1,18 @@
 import { useForm } from "react-hook-form";
 
+import { API_URL } from "../../constants";
+
 export default function Create() {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = async data => {
     // TODO: catch error & show user friendly message
-    const res = await fetch(`${process.env.API_URL}/recipes`, {
+    const res = await fetch(`${API_URL}/recipes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     });
-    // TODO: is `res.ok` redirect or show success msg
+    // TODO: if `res.ok` redirect or show success msg
     if (res.ok) {
       console.log("recipe added!");
     }
