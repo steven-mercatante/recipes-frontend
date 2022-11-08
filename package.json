@@ -10,7 +10,7 @@
   "dependencies": {
     "antd": "^4.3.5",
     "markdown-to-jsx": "^6.11.4",
-    "next": "9.4.4",
+    "next": "13.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hook-form": "^5.7.2",
